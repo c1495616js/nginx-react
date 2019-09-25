@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+###############
+# setup react js container
+###############
+  web:
+    build: ./web
+    expose:
+      - 3000
+    ports:
+      - 5000:3000
+    volumes:
+      - ./web:/app
+##############
+# setup nginx load balancer
+##############
+  nginx:
+    image: nginx:1.13
+    ports:
+      - '5050:80'
+    depends_on:
+      - web
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
