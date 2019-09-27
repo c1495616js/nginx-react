@@ -13,4 +13,6 @@ need to restart nginx in container.
 docker exec -it <nginx_container_id> nginx -s reload
 ```
 
+### Test using webpack-dev-server
+checkout to the commit: `webpack-dev-server`
 
